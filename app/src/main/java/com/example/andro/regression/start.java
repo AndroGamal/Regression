@@ -117,9 +117,29 @@ public class start extends AppCompatActivity {
         }
     }
 
-    public void line() {
+    public void line(double x1,double y1,double x2,double y2) {
+        double x = x2 - x1, xi;
+        double y = y2 - y1, max, yi;
+        if (Math.abs(x) >=Math.abs(y)) { max =Math.abs(x); }
+        else { max = Math.abs(y); }
+        xi = x / max;
+        yi = y / max;
+        double xx = x1;
+        double yy = y1;
+        for (int r = 0; r < max; r++) {
+            if (Math.round(xx) < o.getWidth() && Math.round(xx) >= 0 && Math.round(yy) >= 0 && Math.round(yy) < o.getHeight()) {
+                o.setPixel((int) Math.round(xx), (int) Math.round(yy), Color.BLUE);
+            }
+            xx += xi;
+            yy += yi;
+        }
+        }
+public void setline(ArrayList<Double> x, ArrayList<Double> y){
+    for (int i = 0; i < x.size()-1; i++) {
+        line(x.get(i) * 10, o.getHeight() -Math.abs(y.get(i)* 10),x.get(i+1) * 10, o.getHeight() - Math.abs(y.get(i+1) * 10));
     }
 
+}
     public void e() {
         o = Bitmap.createBitmap(250, 250, Bitmap.Config.ARGB_4444);
         try {
@@ -153,7 +173,9 @@ public class start extends AppCompatActivity {
 
             coust = n.computeCost(x, y_ans = n.T(n.convert(y)), theta_ans = n.gradientDescent(x, n.T(n.convert(y)), n.convert(theta), alpha, ilter, progressBar));
             setpoint(xt, y);
+            setline(xt,n.T(n.multyplay(x,n.T(theta_ans))).get(0));
 
+            //line(x.get(0).get(0)*10,o.getHeight()-n.multyplay(x,n.T(theta_ans)).get(0).get(0)*10,o.getWidth(),n.multyplay(x,n.T(theta_ans)).get(96).get(0)*10);
     }
 
 }
