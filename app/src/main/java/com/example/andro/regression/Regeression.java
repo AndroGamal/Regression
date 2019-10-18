@@ -1,7 +1,6 @@
 package com.example.andro.regression;
 
-import android.os.Build;
-import android.support.annotation.RequiresApi;
+
 import android.widget.ProgressBar;
 
 import java.io.File;
@@ -13,12 +12,12 @@ import java.util.Scanner;
  * Created by Andro on 10/10/2019.
  */
 
-public abstract class ReadDataSet {
+public abstract class Regeression {
     private Scanner scanner;
     private File fileread;
     private ArrayList<ArrayList<Double>> list;
 
-    ReadDataSet(String file) throws FileNotFoundException {
+    Regeression(String file) throws FileNotFoundException {
         fileread = new File(file);
         scanner = new Scanner(fileread);
         list = new ArrayList<>();

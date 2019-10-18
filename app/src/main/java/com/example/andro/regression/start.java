@@ -24,7 +24,7 @@ public class start extends AppCompatActivity {
     String s;
     double alpha;
     int ilter;
-    ReadDataSet n;
+    Regeression n;
     static Bitmap o;
     ArrayList<Double> xt, y, theta, one;
     static ArrayList<ArrayList<Double>> x, y_ans, theta_ans;
@@ -143,7 +143,7 @@ public void setline(ArrayList<Double> x, ArrayList<Double> y){
     public void e() {
         o = Bitmap.createBitmap(250, 250, Bitmap.Config.ARGB_4444);
         try {
-            n = new ReadDataSet(s) {
+            n = new Regeression(s) {
                 @Override
                 public void ok() {
                     startActivity(new Intent(start.this, MainActivity.class));
