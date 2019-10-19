@@ -60,7 +60,7 @@ public abstract class Regeression {
                 ok();
             }
             m = new ArrayList<>(sub(multyplay(X, T(theta)), y));
-            for (int r = 0; r < X.get(i).size(); r++) {
+            for (int r = 0; r < X.get(0).size(); r++) {
                 ans.get(0).set(r, theta.get(0).get(r) - alpha / X.size() * sum(multyplay(convert(getcolumx(X, r)), m)));
             }
             theta = new ArrayList<>(ans);
